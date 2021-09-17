@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/zapierauth</path>
+    <page_callback>CRM_Zapier_Page_Auth</page_callback>
+    <title>Auth</title>
+    <access_callback>1</access_callback>
+    <is_public>true</is_public>
+  </item>
+  <item>
+    <path>civicrm/zapier/contacts</path>
+    <page_callback>CRM_Zapier_Page_Contact</page_callback>
+    <access_callback>1</access_callback>
+    <is_public>true</is_public>
+  </item>
+  <item>
+    <path>civicrm/zapier/participants</path>
+    <page_callback>CRM_Zapier_Page_Participant</page_callback>
+    <access_callback>1</access_callback>
+    <is_public>true</is_public>
+  </item>
+  <item>
+    <path>civicrm/zaphooks</path>
+    <page_callback>CRM_Zapier_Form_ZapHooks</page_callback>
+    <title>ZapHooks</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+     <path>civicrm/zaphooks/new</path>
+     <page_callback>CRM_Zapier_Utils::registerHooks</page_callback>
+     <access_callback>1</access_callback>
+    <is_public>true</is_public>
+     <weight>0</weight>
+  </item>
+</menu>
