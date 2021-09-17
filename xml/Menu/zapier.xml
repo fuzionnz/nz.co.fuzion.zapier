@@ -26,10 +26,16 @@
     <access_arguments>access CiviCRM</access_arguments>
   </item>
   <item>
-     <path>civicrm/zaphooks/new</path>
-     <page_callback>CRM_Zapier_Utils::registerHooks</page_callback>
-     <access_callback>1</access_callback>
+    <path>civicrm/zaphooks/new</path>
+    <page_callback>CRM_Zapier_Utils::registerHooks</page_callback>
+    <access_callback>1</access_callback>
     <is_public>true</is_public>
-     <weight>0</weight>
+    <weight>0</weight>
+  </item>
+  <item>
+    <path>civicrm/civirule/form/action/zapier</path>
+    <page_callback>CRM_Zapier_Form_TriggerZap</page_callback>
+    <title>TriggerZap</title>
+    <access_arguments>access CiviCRM</access_arguments>
   </item>
 </menu>

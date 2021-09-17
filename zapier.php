@@ -66,45 +66,6 @@ function zapier_civicrm_disable() {
   _zapier_civix_civicrm_disable();
 }
 
-function zapier_civicrm_post($op, $objectName, $objectId, &$objectRef) {
-  if (($op == 'create' || $op == 'edit') && $objectName == 'Individual') {
-    $email = civicrm_api3('Email', 'get', [
-      'sequential' => 1,
-      'contact_id' => $objectId,
-      'is_primary' => 1,
-    ])['values'][0]['email'] ?? '';
-    $data = [
-      'id' => $objectId,
-      'first_name' => $objectRef->first_name,
-      'last_name' => $objectRef->last_name,
-      'email' => $email,
-    ];
-    $hookURL = CRM_Zapier_Utils::getZapHook('create_contact');
-    CRM_Zapier_Utils::triggerZap('POST', $hookURL, $data);
-  }
-
-  if (($op == 'create' || $op == 'edit') && $objectName == 'Participant') {
-    $participant = civicrm_api3('Participant', 'get', [
-      'sequential' => 1,
-      'id' => $objectId,
-    ])['values'][0] ?? [];
-
-    $data = [
-      'id' => $objectId,
-      'contact_id' => $participant['display_name'] ?? '',
-      'event_id' => $participant['event_title'] ?? '',
-      'status_id' => $participant['participant_status'] ?? '',
-      'role_id' => $participant['participant_role'] ?? '',
-      'source' => $participant['participant_source'] ?? '',
-      'fee_amount' => $participant['participant_fee_amount'] ?? '',
-    ];
-    $hookURL = CRM_Zapier_Utils::getZapHook('update_participant');
-    CRM_Zapier_Utils::triggerZap('POST', $hookURL, $data);
-  }
-
-}
-
-
 /**
  * Implements hook_civicrm_upgrade().
  *
