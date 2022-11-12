@@ -2,6 +2,22 @@
 
 class CRM_Zapier_Utils {
 
+  /**
+   * Returns a list of zap options
+   *
+   * @return array
+   * @throws \CiviCRM_API3_Exception
+   */
+  public static function getZapOptions() {
+    return [
+      'create_contact' => 'Create Contact',
+      'update_participant' => 'Update Participant',
+    ];
+  }
+
+  /**
+   * Save hook URLs in the database.
+   */
   public static function saveHookURL($trigger, $url) {
     $zapHooks = self::getZapHooks();
     if (!empty($zapHooks[$trigger]) && $zapHooks[$trigger] == $url) {
@@ -12,6 +28,11 @@ class CRM_Zapier_Utils {
     Civi::settings()->set('zapierHooks', serialize($zapHooks));
   }
 
+  /**
+   * This is called when create contact hook is selected on zapier.
+   *
+   * The hook is registered in civicrm and is triggerred via civirules.
+   */
   public static function registerHooks() {
     $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, TRUE);
@@ -27,7 +48,7 @@ class CRM_Zapier_Utils {
           'email' => 'dummy4@email.com',
         ];
       }
-      elseif ($trigger == 'create_contact') {
+      elseif ($trigger == 'update_participant') {
         $contact = [
           'id' => '134',
           'contact_id' => 'John Doe',

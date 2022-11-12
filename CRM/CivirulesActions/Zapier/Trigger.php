@@ -50,23 +50,9 @@ class CRM_CivirulesActions_Zapier_Trigger extends CRM_Civirules_Action {
    */
   public function userFriendlyConditionParams() {
     $params = $this->getActionParameters();
-    $roles = self::getZapOptions();
+    $roles = CRM_Zapier_Utils::getZapOptions();
     $zap = $roles[$params['zap_trigger']];
     return E::ts('Trigger Zap for <em>%1</em>', array(1 => $zap));
   }
 
-
-  /**
-   * Returns a list of possible case roles
-   *
-   * @return array
-   * @throws \CiviCRM_API3_Exception
-   */
-  public static function getZapOptions() {
-    $caseRoles = [
-      'create_contact' => 'Create Contact',
-      'update_participant' => 'Update Participant',
-    ];
-    return $caseRoles;
-  }
 }

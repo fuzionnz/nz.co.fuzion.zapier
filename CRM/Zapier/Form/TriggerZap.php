@@ -10,20 +10,6 @@ use CRM_Zapier_ExtensionUtil as E;
 class CRM_Zapier_Form_TriggerZap extends CRM_CivirulesActions_Form_Form {
 
   /**
-   * Method to get groups
-   *
-   * @return array
-   * @access protected
-   */
-  protected function getZapOptions() {
-    $options = [
-      'create_contact' => 'Create Contact',
-      'update_participant' => 'Update Participant',
-    ];
-    return $options;
-  }
-
-  /**
    * Overridden parent method to build the form
    *
    * @access public
@@ -31,7 +17,7 @@ class CRM_Zapier_Form_TriggerZap extends CRM_CivirulesActions_Form_Form {
   public function buildQuickForm() {
     $this->add('hidden', 'rule_action_id');
 
-    $this->add('select', 'zap', ts('Select triggering Zap'), array('' => ts('-- please select --')) + $this->getZapOptions());
+    $this->add('select', 'zap', ts('Select triggering Zap'), array('' => ts('-- please select --')) + CRM_Zapier_Utils::getZapOptions());
     $this->addButtons(array(
       array('type' => 'next', 'name' => ts('Save'), 'isDefault' => TRUE,),
       array('type' => 'cancel', 'name' => ts('Cancel'))));

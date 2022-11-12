@@ -23,7 +23,7 @@ class CRM_Zapier_Form_ZapHooks extends CRM_Core_Form {
       ),
     ));
 
-    $zapHooks = unserialize(unserialize(Civi::settings()->get('zapierHooks')));
+    $zapHooks = unserialize(Civi::settings()->get('zapierHooks'));
     $this->setDefaults($zapHooks);
 
     // export form elements
