@@ -27,6 +27,8 @@ function zapier_civicrm_xmlMenu(&$files) {
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_install
  */
 function zapier_civicrm_install() {
+  CRM_Core_DAO::executeQuery("INSERT INTO civirule_action (name, label, class_name, is_active)
+  VALUES('trigger_zap', 'Trigger Zap', 'CRM_CivirulesActions_Zapier_Trigger', 1)");
   _zapier_civix_civicrm_install();
 }
 

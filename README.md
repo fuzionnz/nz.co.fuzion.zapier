@@ -1,8 +1,6 @@
-# nz.co.fuzion.zapier
+# CiviCRM Zapier Integration (nz.co.fuzion.zapier)
 
-![Screenshot](/images/screenshot.png)
-
-(*FIXME: In one or two paragraphs, describe what the extension does and why one would download it. *)
+Triggers a zap configured on zapier.com from civicrm
 
 The extension is licensed under [AGPL-3.0](LICENSE.txt).
 
@@ -37,8 +35,28 @@ cv en zapier
 
 ## Usage
 
-(* FIXME: Where would a new user navigate to get started? What changes would they see? *)
+### Connect your site account on Zapier.
+- Website Base URL = your site base url Eg http:://www.example.com
+- Api Key = api key of the permissioned contact.
+- Key = CiviCRM site key found in civicrm.settings.php.
 
-## Known Issues
+### Create a new CiviCRM Zap on Zapier.com
+- On zapier.com account and create a zap with App Event = CiviCRM.
+- Choose Event = New Contact
+- In the CiviCRM account field, setup a new account for your site as mentioned above.
+- When you view the zap - a hook URL is displayed. This is added to your civicrm extension settings. This hook can be viewed at `Administer => Zapier Hooks` menu page on your civicrm site.
 
-(* FIXME *)
+![Screenshot](/images/connect_civicrm_on_zapier.png)
+
+- Setup an action for a third party app, Eg insert a row in the Google sheet. A fully configured zap should be displayed like -
+
+![Screenshot](/images/zap.png)
+
+### On your civicrm site
+- Create a civirule that triggers on “Individual is added”.
+- In the Linked Action(s) section, Add an action with value = `Trigger Zap` and click save.
+- On the next page, set “Select triggering Zap” = “Create Contact” => Save.
+
+Now, when a contact is created in civicrm, the civirule is triggered which further triggers the zap on zapier.com to process the third-party app action.
+
+Test by creating an individual contact on your site.
