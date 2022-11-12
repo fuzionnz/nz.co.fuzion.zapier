@@ -46,11 +46,11 @@ cv en zapier
 - In the CiviCRM account field, setup a new account for your site as mentioned above.
 - When you view the zap - a hook URL is displayed. This is added to your civicrm extension settings. This hook can be viewed at `Administer => Zapier Hooks` menu page on your civicrm site.
 
-![Screenshot](/images/connect_civicrm_on_zapier.png)
+![Screenshot](/images/connect_civicrm_on_zapier.jpg)
 
 - Setup an action for a third party app, Eg insert a row in the Google sheet. A fully configured zap should be displayed like -
 
-![Screenshot](/images/zap.png)
+![Screenshot](/images/zap.jpg)
 
 ### On your civicrm site
 - Create a civirule that triggers on “Individual is added”.
