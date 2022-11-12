@@ -52,11 +52,11 @@ class CRM_Zapier_Utils {
         $contact = [
           'id' => '134',
           'contact_id' => 'John Doe',
-          'event_id' => 'Fall Fundraiser Dinner',
-          'status_id' => 'Registered',
-          'role_id' => 'Volunteer',
-          'source' => 'created from zapier',
-          'fee_amount' => '100',
+          'event_title' => 'Fall Fundraiser Dinner',
+          'participant_status' => 'Registered',
+          'participant_role' => 'Volunteer',
+          'participant_source' => 'created from zapier',
+          'participant_fee_amount' => '100',
         ];
       }
 

@@ -2,6 +2,9 @@
 
 class CRM_Zapier_Page_Auth {
 
+  /**
+   * Authenticate CiviCRM on zapier account.
+   */
   public function run() {
     $apiKey = CRM_Utils_Request::retrieveValue('apiKey', 'String', NULL, TRUE);
     CRM_Utils_Request::retrieveValue('key', 'String', NULL, TRUE);
