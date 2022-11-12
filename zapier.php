@@ -168,3 +168,19 @@ function zapier_civicrm_navigationMenu(&$menu) {
   ));
   _zapier_civix_navigationMenu($menu);
 } // */
+
+/**
+ * Implements hook_civicrm_navigationMenu().
+ *
+ * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_navigationMenu
+ */
+function zapier_civicrm_navigationMenu(&$menu) {
+  _zapier_civix_insert_navigation_menu($menu, 'Administer', array(
+    'label' => E::ts('Zapier Hooks'),
+    'name' => 'Zapier Hooks',
+    'url' => 'civicrm/zaphooks?reset=1',
+    'permission' => 'access CiviCRM',
+    'separator' => 0,
+  ));
+  _zapier_civix_navigationMenu($menu);
+}
