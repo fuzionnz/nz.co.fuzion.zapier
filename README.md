@@ -35,15 +35,16 @@ cv en zapier
 
 ## Usage
 
-### Connect your site account on Zapier.
-- Website Base URL = your site base url Eg http:://www.example.com
-- Api Key = api key of the permissioned contact.
-- Key = CiviCRM site key found in civicrm.settings.php.
-
 ### Create a new CiviCRM Zap on Zapier.com
 - On your Zapier.com account, create a zap with App Event = CiviCRM.
 - Choose Event = New Contact
-- In the CiviCRM account field, setup a new account for your site as mentioned above.
+- In the CiviCRM account field, setup a new account for your site as mentioned below.
+
+- #### Connect your site account on Zapier.
+    - Website Base URL = your site base url Eg http:://www.example.com
+    - Api Key = api key of the permissioned contact.
+    - Key = CiviCRM site key found in civicrm.settings.php.
+
 - When you view the zap - a hook URL is displayed. This is added to your civicrm extension settings. This hook can be viewed at `Administer => Zapier Hooks` menu page on your civicrm site.
 
 ![Screenshot](/images/connect_civicrm_on_zapier.jpg)
