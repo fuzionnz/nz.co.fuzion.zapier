@@ -43,7 +43,7 @@ cv en zapier
 
 - #### Connect your site account on Zapier.
     - Website Base URL = your site base url Eg http:://www.example.com
-    - Api Key = api key of the permissioned cms contact, To make a new api key see: https://docs.civicrm.org/sysadmin/en/latest/setup/api-keys/
+    - Api Key = api key of the permissioned cms contact. To make a new api key see: https://docs.civicrm.org/sysadmin/en/latest/setup/api-keys/
         note: zapier only accepts keys of 30 characters or less.
     - Key = CiviCRM site key found in civicrm.settings.php.
 
