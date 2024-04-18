@@ -85,7 +85,7 @@ class CRM_Zapier_Utils {
    * @param $url
    * @param $data
    */
-  public static function triggerZap($method, $url, $data = array()) {
+  public static function triggerZap($method, $url, $data = []) {
     $curl = curl_init();
 
     switch ($method) {

@@ -59,7 +59,7 @@ class CRM_CivirulesActions_Zapier_Trigger extends CRM_Civirules_Action {
     $params = $this->getActionParameters();
     $roles = CRM_Zapier_Utils::getZapOptions();
     $zap = $roles[$params['zap_trigger']];
-    return E::ts('Trigger Zap for <em>%1</em>', array(1 => $zap));
+    return E::ts('Trigger Zap for <em>%1</em>', [1 => $zap]);
   }
 
 }

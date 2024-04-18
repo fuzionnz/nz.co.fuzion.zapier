@@ -16,13 +16,13 @@ class CRM_Zapier_Form_ZapHooks extends CRM_Core_Form {
     $this->add('text', 'update_participant', ts('Update Participant'), ['size' => 60]);
     $this->add('text', 'membership_created', ts('Create Membership'), ['size' => 60]);
 
-    $this->addButtons(array(
-      array(
+    $this->addButtons([
+      [
         'type' => 'submit',
         'name' => E::ts('Submit'),
         'isDefault' => TRUE,
-      ),
-    ));
+      ]
+    ]);
 
     $zapHooks = unserialize(Civi::settings()->get('zapierHooks'));
     $this->setDefaults($zapHooks);
@@ -53,7 +53,7 @@ class CRM_Zapier_Form_ZapHooks extends CRM_Core_Form {
     // auto-rendered in the loop -- such as "qfKey" and "buttons".  These
     // items don't have labels.  We'll identify renderable by filtering on
     // the 'label'.
-    $elementNames = array();
+    $elementNames = [];
     foreach ($this->_elements as $element) {
       /** @var HTML_QuickForm_Element $element */
       $label = $element->getLabel();
