@@ -12,19 +12,27 @@ class CRM_CivirulesActions_Zapier_Trigger extends CRM_Civirules_Action {
    */
   public function processAction(CRM_Civirules_TriggerData_TriggerData $triggerData) {
     $params = $this->getActionParameters();
-    switch ($params['zap_trigger']) {
-      case 'create_contact':
-        $entity = $triggerData->getEntityData("Contact");
-        CRM_Zapier_Triggers_CreateContact::sendData($entity['id'], $entity);
-        break;
+    $entity = $triggerData->getEntity();
+    $entityParams = [
+      'Contact' => ['*', 'custom.*', 'address_primary.*', 'email_primary.*', 'phone_primary.*'],
+      'Membership' => ['*', 'custom.*'],
+      'Participant' => ['*', 'custom.*', 'contact_id.*', 'event_id.*'],
+    ];
+    if (isset($entityParams[$entity])) {
+      $entityData = $triggerData->getEntityData($entity);
 
-      case 'update_participant':
-        $entity = $triggerData->getEntityData("Participant");
-        CRM_Zapier_Triggers_UpdateParticipant::sendData($entity['id'], $entity);
-        break;
+      $apiValues = civicrm_api4($entity, 'get', [
+        'select' => $entityParams[$entity],
+        'checkPermissions' => FALSE,
+        'where' => [
+          ['id', '=', $entityData['id']],
+        ],
+      ])->first();
 
-      default:
-        break;
+      $hookURL = CRM_Zapier_Utils::getZapHook($params['zap_trigger']);
+      if (!empty($hookURL) && !empty($apiValues)) {
+        CRM_Zapier_Utils::triggerZap('POST', $hookURL, $apiValues);
+      }
     }
   }
 
@@ -36,7 +44,6 @@ class CRM_CivirulesActions_Zapier_Trigger extends CRM_Civirules_Action {
    * @access public
    */
   public function getExtraDataInputUrl($ruleActionId) {
-    // return FALSE;
     return CRM_Utils_System::url('civicrm/civirule/form/action/zapier', 'rule_action_id='.$ruleActionId);
   }
 

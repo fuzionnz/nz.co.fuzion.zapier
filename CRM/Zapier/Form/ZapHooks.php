@@ -14,6 +14,7 @@ class CRM_Zapier_Form_ZapHooks extends CRM_Core_Form {
     // add form elements
     $this->add('text', 'create_contact', ts('Create Contact'), ['size' => 60]);
     $this->add('text', 'update_participant', ts('Update Participant'), ['size' => 60]);
+    $this->add('text', 'membership_created', ts('Create Membership'), ['size' => 60]);
 
     $this->addButtons(array(
       array(

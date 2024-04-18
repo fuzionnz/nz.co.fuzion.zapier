@@ -12,6 +12,7 @@ class CRM_Zapier_Utils {
     return [
       'create_contact' => 'Create Contact',
       'update_participant' => 'Update Participant',
+      'membership_created' => 'Create Membership',
     ];
   }
 
@@ -34,33 +35,13 @@ class CRM_Zapier_Utils {
    * The hook is registered in civicrm and is triggerred via civirules.
    */
   public static function registerHooks() {
-    $inputJSON = file_get_contents('php://input');
+    $inputJSON = $_GET['body'] ?? file_get_contents('php://input') ?? NULL;
+
     $input = json_decode($inputJSON, TRUE);
+
     $trigger = $input['triggers'][0] ?? '';
     if (!empty($input['webhookUrl']) && !empty($trigger)) {
       self::saveHookURL($trigger, $input['webhookUrl']);
-      $contact = [];
-      if ($trigger == 'create_contact') {
-        $contact = [
-          'id' => '134',
-          'first_name' => 'Dummy4',
-          'last_name' => 'Dummy4',
-          'email' => 'dummy4@email.com',
-        ];
-      }
-      elseif ($trigger == 'update_participant') {
-        $contact = [
-          'id' => '134',
-          'contact_id' => 'John Doe',
-          'event_title' => 'Fall Fundraiser Dinner',
-          'participant_status' => 'Registered',
-          'participant_role' => 'Volunteer',
-          'participant_source' => 'created from zapier',
-          'participant_fee_amount' => '100',
-        ];
-      }
-
-      CRM_Zapier_Utils::triggerZap('POST', $input['webhookUrl'], $contact);
     }
 
   }
@@ -110,8 +91,12 @@ class CRM_Zapier_Utils {
     switch ($method) {
       case "POST":
         curl_setopt($curl, CURLOPT_POST, 1);
-        if ($data)
+        if ($data) {
+          if (is_array($data)) {
+            $data = http_build_query($data);
+          }
           curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        }
         break;
 
       case "PUT":
