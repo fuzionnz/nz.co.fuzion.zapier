@@ -15,7 +15,7 @@ class CRM_CivirulesActions_Zapier_Trigger extends CRM_Civirules_Action {
     $entity = $triggerData->getEntity();
     $entityParams = [
       'Contact' => ['*', 'custom.*', 'address_primary.*', 'email_primary.*', 'phone_primary.*'],
-      'Membership' => ['*', 'custom.*'],
+      'Membership' => ['*', 'custom.*', 'contact_id.*'],
       'Participant' => ['*', 'custom.*', 'contact_id.*', 'event_id.*'],
     ];
     if (isset($entityParams[$entity])) {
