@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
-<extension key="nz.co.fuzion.zapier" type="module">
+<extension key="zapier" type="module">
   <file>zapier</file>
   <name>CiviCRM Zapier Integration</name>
-  <description>Triggers zap for civicrm events (supports only 2 zap actions for now)</description>
+  <description>Triggers zap for civicrm events (supports 3 triggers)</description>
   <license>AGPL-3.0</license>
   <maintainer>
     <author>jitendrapurohit</author>
     <email>jitendra@fuzion.co.nz</email>
   </maintainer>
   <urls>
-    <url desc="Main Extension Page">https://github.com/fuzionnz/nz.co.fuzion.zapier</url>
-    <url desc="Documentation">https://github.com/fuzionnz/nz.co.fuzion.zapier/blob/master/README.md</url>
-    <url desc="Support">https://github.com/fuzionnz/nz.co.fuzion.zapier</url>
+    <url desc="Main Extension Page">https://github.com/fuzionnz/zapier</url>
+    <url desc="Documentation">https://github.com/fuzionnz/zapier/blob/master/README.md</url>
+    <url desc="Support">https://github.com/fuzionnz/zapier</url>
     <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
   </urls>
   <releaseDate>2021-06-15</releaseDate>

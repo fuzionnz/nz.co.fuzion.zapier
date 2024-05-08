@@ -1,6 +1,8 @@
-# CiviCRM Zapier Integration (nz.co.fuzion.zapier)
+# CiviCRM Zapier Integration
 
 Triggers a zap configured on zapier.com from civicrm
+
+Supports 3 triggers: Contact, Membership & Participant.
 
 The extension is licensed under [AGPL-3.0](LICENSE.txt).
 
@@ -20,7 +22,7 @@ install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
 cd <extension-dir>
-cv dl nz.co.fuzion.zapier@https://github.com/FIXME/nz.co.fuzion.zapier/archive/master.zip
+cv dl zapier@https://github.com/FIXME/zapier/archive/master.zip
 ```
 
 ## Installation (CLI, Git)
@@ -29,7 +31,7 @@ Sysadmins and developers may clone the [Git](https://en.wikipedia.org/wiki/Git) 
 install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
-git clone https://github.com/FIXME/nz.co.fuzion.zapier.git
+git clone https://github.com/FIXME/zapier.git
 cv en zapier
 ```
 
@@ -61,3 +63,16 @@ cv en zapier
 Now, when a contact is created in civicrm, the civirule is triggered which further triggers the zap on zapier.com to process the third-party app action.
 
 Test by creating an individual contact on your site.
+
+## Support
+
+This extension is contributed by [Fuzion](https://www.fuzion.co.nz).
+
+We welcome contributions and bug reports via the [zapier issue queue](https://github.com/fuzionnz/zapier/issues).
+
+Community support is available via CiviCRM community channels:
+
+* [CiviCRM chat](https://chat.civicrm.org)
+* [CiviCRM question & answer forum on StackExchange](https://civicrm.stackexchange.com)
+
+Contact us - info@fuzion.co.nz - for professional support and development requests.
