@@ -1,6 +1,6 @@
 # CiviCRM Zapier Integration
 
-Triggers a zap configured on zapier.com from civicrm
+Triggers a zap configured on https://zapier.com/ from CiviCRM.
 
 Supports 3 triggers: Contact, Membership & Participant.
 
@@ -14,7 +14,7 @@ The extension is licensed under [AGPL-3.0](LICENSE.txt).
 ## Usage
 
 ### Create a new CiviCRM Zap on Zapier.com
-- On your Zapier.com account, create a zap with App Event = CiviCRM.
+- On your [Zapier](https://zapier.com/) account, create a zap with App Event = CiviCRM.
 - Choose Event = New Contact
 - In the CiviCRM account field, setup a new account for your site as mentioned below.
 
@@ -36,7 +36,7 @@ The extension is licensed under [AGPL-3.0](LICENSE.txt).
 - In the Linked Action(s) section, Add an action with value = `Trigger Zap` and click save.
 - On the next page, set “Select triggering Zap” = “Create Contact” => Save.
 
-Now, when a contact is created in civicrm, the civirule is triggered which further triggers the zap on zapier.com to process the third-party app action.
+Now, when a contact is created in civicrm, the civirule is triggered which further triggers the zap on [zapier.com](https://zapier.com/) to process the third-party app action.
 
 Test by creating an individual contact on your site.
 
